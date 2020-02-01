@@ -12,6 +12,8 @@ public class PlayerStats : ScriptableObject
     public int playerNumber = 1;
     private int playerHP = 10;
     private int playerMaxHP = 10;
+    public bool invincible_ = false;
+    public float invincibility_timer_ = 0.5f;
 
     public bool isPlaying = false;
 
@@ -43,6 +45,15 @@ public class PlayerStats : ScriptableObject
         {
             return playerMaxHP;
         }
+    }
+
+    public void TakeDamage(int damage_taken) { playerHP -= damage_taken; }
+
+    public IEnumerator setInvincibility()
+    {
+        invincible_ = true;
+        yield return new WaitForSeconds(invincibility_timer_);
+        invincible_ = false;
     }
 }
 

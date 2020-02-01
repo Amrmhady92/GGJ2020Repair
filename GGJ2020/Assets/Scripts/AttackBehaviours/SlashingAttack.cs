@@ -36,9 +36,15 @@ public class SlashingAttack : AttackBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag == "Player") && (collision.gameObject != transform.parent.gameObject))
+        GameObject collided_object = collision.gameObject;
+        if ((collided_object.tag == "Player") && (collided_object != transform.parent.gameObject))
         {
-            Debug.Log("Hit a player");
+            PlayerController player_controller_script = collided_object.GetComponent<PlayerController>();
+            if (!player_controller_script.playerStat.invincible_)
+            {
+                player_controller_script.playerStat.TakeDamage(attackDamage);
+                StartCoroutine(player_controller_script.playerStat.setInvincibility());
+            }
         }
     }
 }

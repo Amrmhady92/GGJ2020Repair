@@ -7,12 +7,15 @@ public class MovementController : MonoBehaviour
     [Range(1, 4)]
     public int playerNumber = 1;
 
-    public float x, y = 0;
+    private float x, y = 0;
     public float xIn, yIn = 0;
-    public float angle;
+    private float angle;
+    public float speed = 1;
+
+    public Rigidbody2D rb;
     void Start()
     {
-
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -21,11 +24,15 @@ public class MovementController : MonoBehaviour
 
         xIn = Input.GetAxis("LeftAxisH_P" + playerNumber);
         yIn = Input.GetAxis("LeftAxisV_P" + playerNumber);
-        x = xIn == Mathf.Abs(0.001f) ? x : xIn;
-        y = yIn == Mathf.Abs(0.001f) ? y : yIn;
+        x = Mathf.Abs(xIn) < 0.01f ? x : xIn;
+        y = Mathf.Abs(yIn) < 0.01f ? y : yIn;
 
-        angle = Mathf.Atan2(x, y) * Mathf.Rad2Deg;
+        if(xIn != 0 || yIn != 0)
+        {
+            angle = Mathf.Atan2(-x, y) * Mathf.Rad2Deg;
+            this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+         rb.velocity = new Vector2(xIn,yIn) * speed;
 
-        this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

@@ -11,6 +11,7 @@ public class Sound
         Player2_Sounds,
         Player3_Sounds,
         Player4_Sounds,
+        AllPlayersSounds,
         Environment_Sound,
         Menu_Sound
     }
@@ -61,6 +62,9 @@ public class AudioManager : MonoBehaviour
 
             else if (s.type == Sound.Type.Player1_Sounds)
                 s.source = transform.Find("Player1_Sounds").gameObject.AddComponent<AudioSource>();
+                
+            else if (s.type == Sound.Type.AllPlayersSounds)
+                s.source = transform.Find("AllPlayerSounds").gameObject.AddComponent<AudioSource>();
 
             else if (s.type == Sound.Type.Player2_Sounds)
                 s.source = transform.Find("Player2_Sounds").gameObject.AddComponent<AudioSource>();

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         }
         attackBehaviour = this.GetComponent<AttackBehaviour>();
         movementController = this.GetComponent<MovementController>();
-        if(attackBehaviour == null || movementController == null)
+        if(/*attackBehaviour == null ||*/ movementController == null)
         {
             active = false;
             Debug.LogError("No AttackBehaviour or MovementController on Player Controller Object");
@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire_P"+playerStat.playerNumber))
         {
-            attackBehaviour.Attack();
+            //attackBehaviour.Attack();
         }
 
-        if (Input.GetButtonDown("Dash_P" + playerStat.playerNumber) && playerStat.isDashing == false)
+        if (Input.GetButtonDown("Dash_P" + playerStat.playerNumber))
         {
             movementController.Dash();
         }

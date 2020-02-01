@@ -9,10 +9,6 @@ public class PlayerStats : ScriptableObject
     public int playerHP = 10;
     public int playerMaxHP = 10;
 
-
-    public bool isDashing = false;
-
-
     public bool isPlaying = false;
 
 }

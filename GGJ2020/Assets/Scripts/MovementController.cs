@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
@@ -9,7 +10,8 @@ public class MovementController : MonoBehaviour
     [Space(10)]
     public float speed = 1;
     [Space(10)]
-    public float dashDuration = 0.1f;
+    public float dashForce = 5f;
+    public float dashDuration = 1f;
     public float dashCoolDown = 1.5f;
     public bool isDashing = false;
     public bool canDash = true;
@@ -19,22 +21,23 @@ public class MovementController : MonoBehaviour
     private float angle;
 
     private Rigidbody2D rb;
-    private PlayerStats playerStat;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        playerStat = this.GetComponent<PlayerController>().playerStat;
     }
 
     void Update()
     {
+
+
         if (isDashing) return;
 
 
         xIn = Input.GetAxis("LeftAxisH_P" + playerNumber);
         yIn = Input.GetAxis("LeftAxisV_P" + playerNumber);
-        x = Mathf.Abs(xIn) < 0.01f ? x : xIn;
-        y = Mathf.Abs(yIn) < 0.01f ? y : yIn;
+        x = Mathf.Abs(xIn) < 0.05f ? x : xIn;
+        y = Mathf.Abs(yIn) < 0.05f ? y : yIn;
 
         if(xIn != 0 || yIn != 0)
         {
@@ -53,9 +56,16 @@ public class MovementController : MonoBehaviour
         isDashing = true;
         canDash = false;
 
+        rb.velocity = Vector2.zero;
+        rb.AddForce(this.transform.up * dashForce,ForceMode2D.Impulse);
         StopAllCoroutines();
-        StartCoroutine(DoAfter(() => { isDashing = false; Debug.Log("IsDashing"); }, dashDuration));
-        StartCoroutine(DoAfter(() => { canDash = true; Debug.Log("CanDash"); }, dashCoolDown));
+        StartCoroutine(DoAfter(() => 
+        {
+            rb.velocity = Vector2.zero;
+            isDashing = false;
+        },
+        dashDuration));
+        StartCoroutine(DoAfter(() => { canDash = true; }, dashCoolDown));
 
     }
 

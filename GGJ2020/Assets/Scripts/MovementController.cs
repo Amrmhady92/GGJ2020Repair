@@ -24,7 +24,7 @@ public class MovementController : MonoBehaviour
     private Rigidbody2D rb;
 
 
-    private bool active = false;
+    private bool active = true;
 
     public bool Active
     {

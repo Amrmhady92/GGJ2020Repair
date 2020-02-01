@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < names.Length; i++)
         {
             Debug.Log(names[i]);
-
         }
     }
     private void Start()

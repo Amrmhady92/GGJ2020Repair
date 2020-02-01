@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
             active = false;
             Debug.LogError("No PlayerStat on Player Controller Object");
         }
-        attackBehaviour = this.GetComponent<AttackBehaviour>();
+        attackBehaviour =  transform.GetChild(0).gameObject.GetComponent<AttackBehaviour>();
         movementController = this.GetComponent<MovementController>();
         if(movementController == null)
         {
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire_P"+playerStat.playerNumber))
         {
-            if(attackBehaviour == null) attackBehaviour.Attack();
+            if(attackBehaviour != null) attackBehaviour.Attack();
         }
 
         if (Input.GetButtonDown("Dash_P" + playerStat.playerNumber))

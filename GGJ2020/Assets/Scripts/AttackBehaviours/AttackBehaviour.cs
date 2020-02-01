@@ -9,12 +9,12 @@ public abstract class AttackBehaviour : MonoBehaviour
     public float attackSpeed = 0.3f;
     public Action onAttackHit;
 
-    public float attackCoolDown = 1;
+    public float attack_cooldown_;
 
 
     public abstract void Attack();
     public virtual void OnAttackHit()
     {
         if (onAttackHit != null) onAttackHit?.Invoke();
-    } 
+    }
 }

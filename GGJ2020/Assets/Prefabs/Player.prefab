@@ -99,7 +99,7 @@ MonoBehaviour:
   playerNumber: 1
   xIn: 0
   yIn: 0
-  speed: 4
+  speed: 8
   rb: {fileID: 0}
 --- !u!50 &8132120841512984461
 Rigidbody2D:

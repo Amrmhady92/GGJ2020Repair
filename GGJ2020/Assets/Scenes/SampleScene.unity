@@ -238,7 +238,7 @@ MonoBehaviour:
   playerNumber: 1
   xIn: 0
   yIn: 0
-  speed: 1
+  speed: 4
   rb: {fileID: 0}
 --- !u!212 &689911304
 SpriteRenderer:
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b5154858f9eef84aa23042861b6d44e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f19d536948dbdf04c965b5207cdd9b60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

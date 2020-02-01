@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5533202011619630894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2158399493023231284}
+  - component: {fileID: 4237048688858694861}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2158399493023231284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533202011619630894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47062308, y: -0.78414947, z: -1.2488793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4237048688858694861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533202011619630894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301b767acb3e21b46937dbc1296557b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 3fdd446b6e0b0184bbe1be1e1a4d91cb, type: 3}
+    name: Drums
+    type: 5
+    volume: 1
+    pitch: 0
+    looping: 1
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4c442d987f540954eb0b9105b8d99413, type: 3}
+    name: Bass1
+    type: 5
+    volume: 1
+    pitch: 0
+    looping: 1
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c91babe5724fb75459930135068bc88b, type: 3}
+    name: Bass2
+    type: 5
+    volume: 1
+    pitch: 0
+    looping: 1
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ac56448c258d15e478d632d2b19f76be, type: 3}
+    name: Synthi1
+    type: 0
+    volume: 1
+    pitch: 0
+    looping: 1
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 3850f89bba63a24439f5eca938f87bde, type: 3}
+    name: Engine
+    type: 4
+    volume: 1
+    pitch: 0
+    looping: 1
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b436e8c9f8ce9ca4c959748dbf1724b6, type: 3}
+    name: BounceOffTheBorder
+    type: 4
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 0}
+    name: 
+    type: 0
+    volume: 0
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - clip: {fileID: 0}
+    name: 
+    type: 0
+    volume: 0
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}

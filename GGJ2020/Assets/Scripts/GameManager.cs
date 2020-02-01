@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    
     public PlayerStats[] playerStats;
     public GameObject[] playersPrefabs; 
 
@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
     public bool playerReadyThree = false;
     public bool playerReadyFour = false;
 
-    public bool canReady = true;
+    public float unitSpawnSize = 4;
+
+    public KandooZ.CountDowner countDowner;
+
+    private bool canReady = true;
 
     int readyPlayerCount;
     private static GameManager instance;
@@ -45,25 +49,28 @@ public class GameManager : MonoBehaviour
             playerReadyOne = !playerReadyOne;
             if (playerReadyOne) readyPlayerCount++;
             else readyPlayerCount--;
+            UIManager.Instance.SetPlayerReady(1, playerReadyOne);
         }
         if (Input.GetButtonDown("Fire_P2") && canReady)
         {
             playerReadyTwo = !playerReadyTwo;
             if (playerReadyTwo) readyPlayerCount++;
             else readyPlayerCount--;
+            UIManager.Instance.SetPlayerReady(2, playerReadyTwo);
         }
         if (Input.GetButtonDown("Fire_P3") && canReady)
         {
             playerReadyThree = !playerReadyThree;
             if (playerReadyThree) readyPlayerCount++;
             else readyPlayerCount--;
-
+            UIManager.Instance.SetPlayerReady(3, playerReadyThree);
         }
         if (Input.GetButtonDown("Fire_P4") && canReady)
         {
             playerReadyFour = !playerReadyFour;
             if (playerReadyFour) readyPlayerCount++;
             else readyPlayerCount--;
+            UIManager.Instance.SetPlayerReady(4, playerReadyFour);
         }
 
         if (Input.GetButtonDown("Start") && canReady)
@@ -85,7 +92,28 @@ public class GameManager : MonoBehaviour
             playerStats[2].isPlaying = playerReadyThree;
             playerStats[3].isPlaying = playerReadyFour;
 
+            GameObject playerObejct;
+            for (int i = 0; i < playersPrefabs.Length; i++)
+            {
+                if(playerStats[i].isPlaying)
+                {
+                    playerObejct = GameObject.Instantiate(playersPrefabs[i]);
+                    playerObejct.transform.position = UnityEngine.Random.insideUnitCircle * unitSpawnSize;
+                    playerObejct.GetComponent<PlayerController>().Active = false;
+                }
+            }
 
+            UIManager.Instance.EnableDisableBG(false);
+            countDowner.StartCountDown(() => 
+            {
+                PlayerController[] playerControllers = GameObject.FindObjectsOfType<PlayerController>();
+                for (int i = 0; i < playerControllers.Length; i++)
+                {
+                    playerControllers[i].Active = true;
+                    //Sound here
+
+                }
+            });
 
         }
         else

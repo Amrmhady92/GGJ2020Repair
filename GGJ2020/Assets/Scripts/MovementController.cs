@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerController))]
 public class MovementController : MonoBehaviour
 {
-    [Range(1, 4)]
-    public int playerNumber = 1;
-    [Space(10)]
     public float speed = 1;
     [Space(10)]
     public float dashForce = 5f;
@@ -20,11 +18,15 @@ public class MovementController : MonoBehaviour
     private float xIn, yIn = 0;
     private float angle;
 
+
+    private int playerNumber = 1;
+
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        playerNumber = this.GetComponent<PlayerController>().playerStat.playerNumber;
     }
 
     void Update()

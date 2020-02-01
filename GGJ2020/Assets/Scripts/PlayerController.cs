@@ -11,18 +11,31 @@ public class PlayerController : MonoBehaviour
     private AttackBehaviour attackBehaviour;
     private MovementController movementController;
 
+    public bool Active
+    {
+        get
+        {
+            return active;
+        }
+
+        set
+        {
+            active = value;
+        }
+    }
+
     private void Start()
     {
         if(playerStat == null)
         {
-            active = false;
+            Active = false;
             Debug.LogError("No PlayerStat on Player Controller Object");
         }
         attackBehaviour =  transform.GetChild(0).gameObject.GetComponent<AttackBehaviour>();
         movementController = this.GetComponent<MovementController>();
         if(movementController == null)
         {
-            active = false;
+            Active = false;
             Debug.LogError("No MovementController on Player Controller Object");
             return;
         }
@@ -31,7 +44,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (!active) return;
+        if (!Active) return;
 
         if (Input.GetButtonDown("Fire_P"+playerStat.playerNumber))
         {

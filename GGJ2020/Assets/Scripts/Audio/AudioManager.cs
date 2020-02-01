@@ -11,7 +11,7 @@ public class Sound
         Player2_Sounds,
         Player3_Sounds,
         Player4_Sounds,
-        AllPlayersSounds,
+        All_Players_Sounds,
         Environment_Sound,
         Menu_Sound
     }
@@ -58,25 +58,52 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in sounds)
         {
             if (s.type == Sound.Type.Menu_Sound)
+            {
+                GameObject new_object = new GameObject("Menu_Sounds");
+                new_object.transform.SetParent(this.transform);
                 s.source = transform.Find("Menu_Sounds").gameObject.AddComponent<AudioSource>();
+            }
 
             else if (s.type == Sound.Type.Player1_Sounds)
+            {
+                GameObject new_object = new GameObject("Player1_Sounds");
+                new_object.transform.SetParent(this.transform);
                 s.source = transform.Find("Player1_Sounds").gameObject.AddComponent<AudioSource>();
-                
-            else if (s.type == Sound.Type.AllPlayersSounds)
-                s.source = transform.Find("AllPlayerSounds").gameObject.AddComponent<AudioSource>();
+            }
 
             else if (s.type == Sound.Type.Player2_Sounds)
+            {
+                GameObject new_object = new GameObject("Player2_Sounds");
+                new_object.transform.SetParent(this.transform);
                 s.source = transform.Find("Player2_Sounds").gameObject.AddComponent<AudioSource>();
-
+            }
+                
             else if (s.type == Sound.Type.Player3_Sounds)
+            {
+                GameObject new_object = new GameObject("Player3_Sounds");
+                new_object.transform.SetParent(this.transform);
                 s.source = transform.Find("Player3_Sounds").gameObject.AddComponent<AudioSource>();
+            }
 
             else if (s.type == Sound.Type.Player4_Sounds)
+            {
+                GameObject new_object = new GameObject("Player4_Sounds");
+                new_object.transform.SetParent(this.transform);
                 s.source = transform.Find("Player4_Sounds").gameObject.AddComponent<AudioSource>();
+            }
 
+            else if (s.type == Sound.Type.All_Players_Sounds)
+            {
+                GameObject new_object = new GameObject("All_Players_Sounds");
+                new_object.transform.SetParent(this.transform);
+                s.source = transform.Find("All_Players_Sounds").gameObject.AddComponent<AudioSource>();
+            }
             else if (s.type == Sound.Type.Environment_Sound)
-                s.source = transform.Find("Environment_Sounds").gameObject.AddComponent<AudioSource>();
+            {
+                GameObject new_object = new GameObject("Environment_Sound");
+                new_object.transform.SetParent(this.transform);
+                s.source = transform.Find("Environment_Sound").gameObject.AddComponent<AudioSource>();
+            }
 
             s.source.clip = s.clip;
             s.source.volume = s.volume;

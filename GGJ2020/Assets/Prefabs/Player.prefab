@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8132120841512984463}
   - component: {fileID: 8132120841512984448}
   - component: {fileID: 8132120841512984461}
-  - component: {fileID: 8132120841512984460}
+  - component: {fileID: 689911303}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &8132120841512984460
+--- !u!60 &689911303
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,13 +147,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.01, y: 2.46}
-      - {x: -0.01, y: 2.46}
-      - {x: -0.049999997, y: 2.4299998}
-      - {x: -2.46, y: -2.36}
-      - {x: -2.46, y: -2.4199998}
-      - {x: -2.44, y: -2.46}
-      - {x: 2.44, y: -2.46}
-      - {x: 2.46, y: -2.4199998}
-      - {x: 2.46, y: -2.36}
-      - {x: 0.049999997, y: 2.4299998}
+    - - {x: 0.004, y: 0.984}
+      - {x: -0.004, y: 0.984}
+      - {x: -0.020000001, y: 0.97200006}
+      - {x: -0.984, y: -0.96800005}
+      - {x: 0.96604514, y: -0.96351135}
+      - {x: 0.020000001, y: 0.97200006}

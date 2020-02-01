@@ -1,7 +1,145 @@
 fileFormatVersion: 2
 guid: d33036da036ced24aba4ba4d710cfe76
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6225262166634788601
+    second: SpriteSheet GameJam_0
+  - first:
+      213: -7161657355734834249
+    second: SpriteSheet GameJam_1
+  - first:
+      213: 6441536509053718452
+    second: SpriteSheet GameJam_2
+  - first:
+      213: -4859000862527005601
+    second: SpriteSheet GameJam_3
+  - first:
+      213: 2422605661066612115
+    second: SpriteSheet GameJam_4
+  - first:
+      213: -1511172444034895910
+    second: SpriteSheet GameJam_5
+  - first:
+      213: 7179168746921708310
+    second: SpriteSheet GameJam_6
+  - first:
+      213: -6497883593306758477
+    second: SpriteSheet GameJam_7
+  - first:
+      213: -7587493764931470105
+    second: SpriteSheet GameJam_8
+  - first:
+      213: -5262973969307036561
+    second: SpriteSheet GameJam_9
+  - first:
+      213: -6346996707488295238
+    second: SpriteSheet GameJam_10
+  - first:
+      213: 4498507213417098938
+    second: SpriteSheet GameJam_11
+  - first:
+      213: 1332024956884791544
+    second: SpriteSheet GameJam_12
+  - first:
+      213: -8525132306671727982
+    second: SpriteSheet GameJam_13
+  - first:
+      213: -2029371926629949019
+    second: SpriteSheet GameJam_14
+  - first:
+      213: 7667082040108253856
+    second: SpriteSheet GameJam_15
+  - first:
+      213: 2821337498815896623
+    second: SpriteSheet GameJam_16
+  - first:
+      213: -2465966824342408804
+    second: SpriteSheet GameJam_17
+  - first:
+      213: -1268627977082689452
+    second: SpriteSheet GameJam_18
+  - first:
+      213: 1531596300450754757
+    second: SpriteSheet GameJam_19
+  - first:
+      213: 8157196474150791118
+    second: SpriteSheet GameJam_20
+  - first:
+      213: 1866856009211705481
+    second: SpriteSheet GameJam_21
+  - first:
+      213: -5584971545783976738
+    second: SpriteSheet GameJam_22
+  - first:
+      213: -8429670789912953535
+    second: SpriteSheet GameJam_23
+  - first:
+      213: 1197576425560115521
+    second: SpriteSheet GameJam_24
+  - first:
+      213: 353157768897812642
+    second: SpriteSheet GameJam_25
+  - first:
+      213: -1941937317820164511
+    second: SpriteSheet GameJam_26
+  - first:
+      213: 5866162309232579589
+    second: SpriteSheet GameJam_27
+  - first:
+      213: 7524627164292871897
+    second: SpriteSheet GameJam_28
+  - first:
+      213: -3522899550867585103
+    second: SpriteSheet GameJam_29
+  - first:
+      213: 9176144819919888814
+    second: SpriteSheet GameJam_30
+  - first:
+      213: -8760890030904682614
+    second: SpriteSheet GameJam_31
+  - first:
+      213: -6617537515828228453
+    second: SpriteSheet GameJam_32
+  - first:
+      213: 1912820767556759013
+    second: SpriteSheet GameJam_33
+  - first:
+      213: -2772859468498699958
+    second: SpriteSheet GameJam_34
+  - first:
+      213: -4274159225882490253
+    second: SpriteSheet GameJam_35
+  - first:
+      213: 3466475458369531883
+    second: SpriteSheet GameJam_36
+  - first:
+      213: 8377758480600029040
+    second: SpriteSheet GameJam_37
+  - first:
+      213: 1977501787333916018
+    second: SpriteSheet GameJam_38
+  - first:
+      213: -7672359438919216
+    second: SpriteSheet GameJam_39
+  - first:
+      213: 1579719479962840496
+    second: SpriteSheet GameJam_0
+  - first:
+      213: -6959209296584928867
+    second: SpriteSheet GameJam_1
+  - first:
+      213: -3162149362856180130
+    second: SpriteSheet GameJam_2
+  - first:
+      213: -8873306740305724090
+    second: SpriteSheet GameJam_3
+  - first:
+      213: -5391136154220313046
+    second: SpriteSheet GameJam_4
+  - first:
+      213: 2657504897273639805
+    second: SpriteSheet GameJam_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +178,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +208,147 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheet GameJam_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 700
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd23ff4f7a4ce510800000000000000
+      internalID: 1579719479962840496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet GameJam_1
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 700
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d919577240ceb6f90800000000000000
+      internalID: -6959209296584928867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet GameJam_2
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 700
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56ca3488e9cd14d0800000000000000
+      internalID: -3162149362856180130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet GameJam_3
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 700
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d7ff0588eabd480800000000000000
+      internalID: -8873306740305724090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet GameJam_4
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 700
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26ceef2b36de25b0800000000000000
+      internalID: -5391136154220313046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet GameJam_5
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 0
+        width: 700
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d733bdebf9a51e420800000000000000
+      internalID: 2657504897273639805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

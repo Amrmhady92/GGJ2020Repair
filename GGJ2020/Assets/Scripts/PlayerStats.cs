@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
 
-    System.Action onPlayerDead;
-    System.Action onPlayerLoseHP;
+    public System.Action<int> onPlayerDead;
+    public System.Action onPlayerLoseHP;
 
     public int playerNumber = 1;
-    private int playerHP = 10;
-    private int playerMaxHP = 10;
+    [SerializeField] private int playerHP = 10;
+    [SerializeField] private int playerMaxHP = 10;
     public bool invincible_ = false;
     public float invincibility_timer_ = 0.5f;
 
@@ -26,14 +26,17 @@ public class PlayerStats : ScriptableObject
 
         set
         {
-            if (playerHP != value)
+            if (playerHP > value)
             {
                 onPlayerLoseHP?.Invoke();
+                //Debug.Log("Player Lose HP");
+
             }
-            playerHP = Mathf.Max(0, value);
+            playerHP = Mathf.Max(0, Mathf.Min( value , playerMaxHP ));
             if(playerHP <= 0)
             {
-                onPlayerDead?.Invoke();
+                onPlayerDead?.Invoke(playerNumber);
+                //Debug.Log("Player Dead");
             }
 
         }
@@ -47,7 +50,7 @@ public class PlayerStats : ScriptableObject
         }
     }
 
-    public void TakeDamage(int damage_taken) { playerHP -= damage_taken; }
+    public void TakeDamage(int damage_taken) { PlayerHP -= damage_taken; }
 
     public IEnumerator setInvincibility()
     {

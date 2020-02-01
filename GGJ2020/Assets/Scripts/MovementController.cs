@@ -6,20 +6,29 @@ public class MovementController : MonoBehaviour
 {
     [Range(1, 4)]
     public int playerNumber = 1;
+    [Space(10)]
+    public float speed = 1;
+    [Space(10)]
+    public float dashDuration = 0.1f;
+    public float dashCoolDown = 1.5f;
+    public bool isDashing = false;
+    public bool canDash = true;
 
     private float x, y = 0;
-    public float xIn, yIn = 0;
+    private float xIn, yIn = 0;
     private float angle;
-    public float speed = 1;
 
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private PlayerStats playerStat;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        playerStat = this.GetComponent<PlayerController>().playerStat;
     }
 
     void Update()
     {
+        if (isDashing) return;
 
 
         xIn = Input.GetAxis("LeftAxisH_P" + playerNumber);
@@ -33,6 +42,27 @@ public class MovementController : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
          rb.velocity = new Vector2(xIn,yIn) * speed;
+    }
+
+    public void Dash()
+    {
+        if (isDashing) return;
+        if (!canDash) return;
+
+
+        isDashing = true;
+        canDash = false;
+
+        StopAllCoroutines();
+        StartCoroutine(DoAfter(() => { isDashing = false; Debug.Log("IsDashing"); }, dashDuration));
+        StartCoroutine(DoAfter(() => { canDash = true; Debug.Log("CanDash"); }, dashCoolDown));
 
     }
+
+    private IEnumerator DoAfter(System.Action callback, float time) 
+    {
+        yield return new WaitForSeconds(time);
+        callback?.Invoke();
+    }
+
 }

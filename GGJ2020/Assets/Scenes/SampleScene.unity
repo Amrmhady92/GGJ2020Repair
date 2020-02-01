@@ -204,11 +204,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &689911302
+--- !u!1 &689911302 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8132120841512984449, guid: 9d2a8ba4123a3cf45bf4eeb2f6570255,
+    type: 3}
+  m_PrefabInstance: {fileID: 8132120841932614023}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:

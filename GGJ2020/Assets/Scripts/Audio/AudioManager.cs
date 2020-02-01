@@ -11,7 +11,7 @@ public class Sound
         Player2_Sounds,
         Player3_Sounds,
         Player4_Sounds,
-        AllPlayersSounds,
+        All_Players_Sounds,
         Environment_Sound,
         Menu_Sound
     }
@@ -54,6 +54,12 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        for (int i = 0; i < System.Enum.GetValues(typeof(Sound.Type)).Length; i++)
+        {
+            Sound.Type temp_type = (Sound.Type)i;
+            GameObject new_object = new GameObject(temp_type.ToString());
+            new_object.transform.SetParent(this.transform);
+        }
 
         foreach (Sound s in sounds)
         {
@@ -62,9 +68,6 @@ public class AudioManager : MonoBehaviour
 
             else if (s.type == Sound.Type.Player1_Sounds)
                 s.source = transform.Find("Player1_Sounds").gameObject.AddComponent<AudioSource>();
-                
-            else if (s.type == Sound.Type.AllPlayersSounds)
-                s.source = transform.Find("AllPlayerSounds").gameObject.AddComponent<AudioSource>();
 
             else if (s.type == Sound.Type.Player2_Sounds)
                 s.source = transform.Find("Player2_Sounds").gameObject.AddComponent<AudioSource>();
@@ -75,8 +78,11 @@ public class AudioManager : MonoBehaviour
             else if (s.type == Sound.Type.Player4_Sounds)
                 s.source = transform.Find("Player4_Sounds").gameObject.AddComponent<AudioSource>();
 
+            else if (s.type == Sound.Type.All_Players_Sounds)
+                s.source = transform.Find("All_Players_Sounds").gameObject.AddComponent<AudioSource>();
+
             else if (s.type == Sound.Type.Environment_Sound)
-                s.source = transform.Find("Environment_Sounds").gameObject.AddComponent<AudioSource>();
+                s.source = transform.Find("Environment_Sound").gameObject.AddComponent<AudioSource>();
 
             s.source.clip = s.clip;
             s.source.volume = s.volume;

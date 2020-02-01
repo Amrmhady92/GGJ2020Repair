@@ -23,6 +23,22 @@ public class MovementController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+
+    private bool active = false;
+
+    public bool Active
+    {
+        get
+        {
+            return active;
+        }
+
+        set
+        {
+            active = value;
+        }
+    }
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -31,7 +47,7 @@ public class MovementController : MonoBehaviour
 
     void Update()
     {
-
+        if (!active) return;
 
         if (isDashing) return;
 

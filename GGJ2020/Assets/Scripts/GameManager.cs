@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public PlayerStats[] playerStats;
     public GameObject[] playersPrefabs; 
 
-    public bool playersReady = true;
 
     public bool playerReadyOne = false;
     public bool playerReadyTwo = false;
@@ -36,6 +35,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
+        var names = Input.GetJoystickNames();
+        for (int i = 0; i < names.Length; i++)
+        {
+            Debug.Log(names[i]);
+
+        }
     }
     private void Start()
     {
@@ -103,7 +108,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            UIManager.Instance.EnableDisableBG(false);
+            UIManager.Instance.EnableDisableUIScreen(false);
             countDowner.StartCountDown(() => 
             {
                 PlayerController[] playerControllers = GameObject.FindObjectsOfType<PlayerController>();

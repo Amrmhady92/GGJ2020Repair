@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public Image playerReadyImageThree;
     public Image playerReadyImageFour;
 
+    
     public GameObject backgroundImage;
 
     private static UIManager instance;
@@ -47,9 +48,13 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void EnableDisableBG(bool enableDisable)
+    public void EnableDisableUIScreen(bool enableDisable)
     {
         backgroundImage.SetActive(enableDisable);
+        playerReadyImageOne.gameObject.SetActive(enableDisable);
+        playerReadyImageTwo.gameObject.SetActive(enableDisable);
+        playerReadyImageThree.gameObject.SetActive(enableDisable);
+        playerReadyImageFour.gameObject.SetActive(enableDisable);
     }
 
 }

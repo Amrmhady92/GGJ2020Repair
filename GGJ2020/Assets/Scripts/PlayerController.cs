@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             active = value;
+            if (movementController != null) movementController.Active = active;
         }
     }
 

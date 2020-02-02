@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     public Sprite[] shipStateSprites;
     public Sprite[] shipPartsSprites;
     public GameObject shiptSpritePartPrefab;
-    public float minPartSpeed = 3f;
-    public float maxPartSpeed = 7f;
+    public float minPartSpeed = 15f;
+    public float maxPartSpeed = 25f;
     private Pooler shipPartsPooler;
     
     public bool Active
@@ -89,7 +89,16 @@ public class PlayerController : MonoBehaviour
         StopAllCoroutines();
         if (this.gameObject.activeSelf) StartCoroutine(setInvincibility());
         SetShipSprite();
+        if (partFalling != null)
+        {
+            partFalling.transform.position = this.transform.position;
+            partFalling.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * Random.Range(minPartSpeed, maxPartSpeed), ForceMode2D.Force);
+            partFalling.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(1f, 3f);
+            partFalling.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 360));
+            LeanTween.cancel(partFalling);
+            LeanTween.scale(partFalling, Vector2.zero, 1.5f).setOnComplete(() => { partFalling.SetActive(false); });
 
+        }
     }
 
     private void SetShipSprite()
@@ -122,15 +131,7 @@ public class PlayerController : MonoBehaviour
                 shipSpriteRenderer.sprite = shipStateSprites[0];
             }
 
-            if (partFalling != null)
-            {
-                partFalling.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * Random.Range(minPartSpeed, maxPartSpeed), ForceMode2D.Force);
-                partFalling.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(1f, 3f);
-                partFalling.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 360));
-                LeanTween.cancel(partFalling);
-                LeanTween.scale(partFalling, Vector2.zero, 1.5f).setOnComplete(() => { partFalling.SetActive(false); });
 
-            }
         }
         else
         {

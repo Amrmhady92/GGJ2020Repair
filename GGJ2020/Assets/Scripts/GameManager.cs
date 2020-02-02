@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     bool startMenu = true;
     private static GameManager instance;
 
+    private AudioManager audio_manager_;
+    private float[] fade_in_timer_ = new float[] { 0.0f, 0.0f };
+
     public static GameManager Instance
     {
         get
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance == null) instance = this;
         
         for (int i = 0; i < playerStats.Length; i++)
@@ -54,8 +58,13 @@ public class GameManager : MonoBehaviour
             playerStats[i].PlayerHP = playerStats[i].PlayerMaxHP;
             playerStats[i].isDead = false;
         }
-    }
 
+        audio_manager_ = FindObjectOfType<AudioManager>();
+        audio_manager_.Play("Drums");
+        audio_manager_.Play("Bass1");
+        audio_manager_.Play("Bass2");
+        audio_manager_.Play("Synthi1");
+    }
     private void Update()
     {
         if (startMenu)
@@ -81,7 +90,7 @@ public class GameManager : MonoBehaviour
                 else readyPlayerCount--;
                 UIManager.Instance.SetPlayerReady(3, playerReadyThree);
             }
-            if (Input.GetButtonDown("Fire_P4") && canReady)
+            if ((Input.GetButtonDown("Fire_P4") || Input.GetKeyDown(KeyCode.R)) && canReady)
             {
                 playerReadyFour = !playerReadyFour;
                 if (playerReadyFour) readyPlayerCount++;
@@ -98,6 +107,9 @@ public class GameManager : MonoBehaviour
                     StartGame();
                 }
             }
+        }
+        else {
+            PlayEnvironmentMusic();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -256,5 +268,27 @@ public class GameManager : MonoBehaviour
     public void OnRestartButtonPressed()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    private void PlayEnvironmentMusic()
+    {
+        int number_of_players = 0;
+        if (playerControllers != null)
+        {
+            foreach (PlayerController player in playerControllers)
+            {
+                if (player.Active) number_of_players++;
+            }
+        }
+        if (number_of_players == 3)
+        {
+            fade_in_timer_[0] += Time.deltaTime;
+            audio_manager_.fadeIn("Bass2", fade_in_timer_[0]);
+        }
+        if (number_of_players == 2)
+        {
+            fade_in_timer_[1] += Time.deltaTime;
+            audio_manager_.fadeIn("Bass2", fade_in_timer_[1]);
+        }
     }
 }

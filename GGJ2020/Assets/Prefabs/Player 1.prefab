@@ -5130,7 +5130,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 715491183
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.972549, g: 0.019607844, b: 0.019607844, a: 1}
@@ -5161,17 +5161,17 @@ MonoBehaviour:
   shipSpriteRenderer: {fileID: 218109227721631644}
   shipStateSprites:
   - {fileID: 21300000, guid: c033362fedac3cb4f9b132a397fb0b75, type: 3}
-  - {fileID: 21300000, guid: 146c6e36e0f0c9e4aa3a069378e88b83, type: 3}
-  - {fileID: 21300000, guid: 5d5dabda571209741a1d3d9f5c3ca963, type: 3}
-  - {fileID: 21300000, guid: 738548fcf2ce03846be3002f4a0c2720, type: 3}
+  - {fileID: 21300000, guid: 3055fae1dc279514ca37e6dffaef63ab, type: 3}
+  - {fileID: 21300000, guid: c145739ae7ca920419a99eb56216f72e, type: 3}
+  - {fileID: 21300000, guid: ad1bd9824aaf1224a81f5c9c5bb08577, type: 3}
   shipPartsSprites:
   - {fileID: 21300000, guid: 2b5ff3674432be04dbe55edc3cc30952, type: 3}
   - {fileID: 21300000, guid: 4da53042e6e9436438817a09a70dc50d, type: 3}
   - {fileID: 21300000, guid: dd2addbcf3bcb7240a736069bfa37e25, type: 3}
   shiptSpritePartPrefab: {fileID: 7403660224024933652, guid: f48d3f60d25f2b64b9eb0d4aca97f559,
     type: 3}
-  minPartSpeed: 3
-  maxPartSpeed: 15
+  minPartSpeed: 15
+  maxPartSpeed: 25
 --- !u!114 &8132120841512984448
 MonoBehaviour:
   m_ObjectHideFlags: 0

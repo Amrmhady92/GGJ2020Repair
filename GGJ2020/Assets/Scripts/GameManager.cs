@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
                 if(playerStats[i].isPlaying)
                 {
                     playerObejct = GameObject.Instantiate(playersPrefabs[i]);
-                    playerObejct.transform.position = UnityEngine.Random.insideUnitCircle * unitSpawnSize;
+                    playerObejct.transform.position = UnityEngine.Random.insideUnitCircle * unitSpawnSize + startPositions[i];
                     playerObejct.GetComponent<PlayerController>().Active = false;
                 }
             }

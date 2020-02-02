@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     public HealthBar playerHpThree;
     public HealthBar playerHpFour;
 
+
     public Color playerOnColorOne;
     public Color playerOnColorTwo;
     public Color playerOnColorThree;
@@ -72,7 +73,8 @@ public class UIManager : MonoBehaviour
 
     public void SetPlayerHPUI(PlayerStats pStat)
     {
-        switch (pStat.playerNumber)
+
+        switch (pStat.playerIndex)
         {
             case 1:
                 playerHpOne.SetValues(pStat.PlayerMaxHP, pStat.PlayerHP);

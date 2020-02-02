@@ -55,9 +55,26 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < playerStats.Length; i++)
         {
+            playerStats[i].playerNumber = i + 1;
+            playerStats[i].playerIndex = i + 1;
+
             playerStats[i].PlayerHP = playerStats[i].PlayerMaxHP;
             playerStats[i].isDead = false;
         }
+
+        //var controllers = Input.GetJoystickNames();
+        //var controllers = Input.
+
+        //int playerIndex = 0;
+        //for (int i = 0; i < controllers.Length; i++)
+        //{
+        //    Debug.Log(controllers[i]);
+        //    //if(controllers[i] != "")
+        //    //{
+        //    //    playerStats[playerIndex].playerNumber = i;
+        //    //    playerIndex++;
+        //    //}
+        //}
 
         audio_manager_ = FindObjectOfType<AudioManager>();
         audio_manager_.Play("Drums");
@@ -67,7 +84,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(fade_in_timer_[0]);
+
         if (startMenu)
         {
             if ((Input.GetButtonDown("Fire_P1") || Input.GetKeyDown(KeyCode.R)) && canReady)
@@ -75,28 +92,28 @@ public class GameManager : MonoBehaviour
                 playerReadyOne = !playerReadyOne;
                 if (playerReadyOne) readyPlayerCount++;
                 else readyPlayerCount--;
-                UIManager.Instance.SetPlayerReady(1, playerReadyOne);
+                UIManager.Instance.SetPlayerReady(playerStats[0].playerIndex, playerReadyOne);
             }
             if ((Input.GetButtonDown("Fire_P2") || Input.GetKeyDown(KeyCode.R)) && canReady)
             {
                 playerReadyTwo = !playerReadyTwo;
                 if (playerReadyTwo) readyPlayerCount++;
                 else readyPlayerCount--;
-                UIManager.Instance.SetPlayerReady(2, playerReadyTwo);
+                UIManager.Instance.SetPlayerReady(playerStats[1].playerIndex, playerReadyTwo);
             }
             if ((Input.GetButtonDown("Fire_P3") || Input.GetKeyDown(KeyCode.R)) && canReady)
             {
                 playerReadyThree = !playerReadyThree;
                 if (playerReadyThree) readyPlayerCount++;
                 else readyPlayerCount--;
-                UIManager.Instance.SetPlayerReady(3, playerReadyThree);
+                UIManager.Instance.SetPlayerReady(playerStats[2].playerIndex, playerReadyThree);
             }
             if ((Input.GetButtonDown("Fire_P4") || Input.GetKeyDown(KeyCode.R)) && canReady)
             {
                 playerReadyFour = !playerReadyFour;
                 if (playerReadyFour) readyPlayerCount++;
                 else readyPlayerCount--;
-                UIManager.Instance.SetPlayerReady(4, playerReadyFour);
+                UIManager.Instance.SetPlayerReady(playerStats[3].playerIndex, playerReadyFour);
             }
 
             if (Input.GetButtonDown("Start") && canReady)

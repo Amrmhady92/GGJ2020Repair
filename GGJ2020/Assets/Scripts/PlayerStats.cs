@@ -10,6 +10,7 @@ public class PlayerStats : ScriptableObject
     public System.Action onPlayerHPChange;
 
     public int playerNumber = 1;
+    public int playerIndex = 1;
     [SerializeField] private int playerHP = 10;
     [SerializeField] private int playerMaxHP = 10;
 

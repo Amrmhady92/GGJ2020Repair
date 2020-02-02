@@ -5164,9 +5164,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d5dabda571209741a1d3d9f5c3ca963, type: 3}
   - {fileID: 21300000, guid: 738548fcf2ce03846be3002f4a0c2720, type: 3}
   shipPartsSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 2b5ff3674432be04dbe55edc3cc30952, type: 3}
+  - {fileID: 21300000, guid: 4da53042e6e9436438817a09a70dc50d, type: 3}
+  - {fileID: 21300000, guid: dd2addbcf3bcb7240a736069bfa37e25, type: 3}
   shiptSpritePartPrefab: {fileID: 7403660224024933652, guid: f48d3f60d25f2b64b9eb0d4aca97f559,
     type: 3}
   minPartSpeed: 3

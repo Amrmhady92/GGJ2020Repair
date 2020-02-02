@@ -190,7 +190,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Attack1
     type: 0
-    clip: {fileID: 8300000, guid: 42031783c834b8b4f8bf443c817a7cd5, type: 3}
+    clip: {fileID: 8300000, guid: 334fca4ebfc61bf438fb806a44b48445, type: 3}
     volume: 1
     pitch: 0
     looping: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Attack2
     type: 1
-    clip: {fileID: 8300000, guid: 42031783c834b8b4f8bf443c817a7cd5, type: 3}
+    clip: {fileID: 8300000, guid: 334fca4ebfc61bf438fb806a44b48445, type: 3}
     volume: 1
     pitch: 0
     looping: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Attack3
     type: 2
-    clip: {fileID: 8300000, guid: 42031783c834b8b4f8bf443c817a7cd5, type: 3}
+    clip: {fileID: 8300000, guid: 334fca4ebfc61bf438fb806a44b48445, type: 3}
     volume: 1
     pitch: 0
     looping: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Attack4
     type: 3
-    clip: {fileID: 8300000, guid: 42031783c834b8b4f8bf443c817a7cd5, type: 3}
+    clip: {fileID: 8300000, guid: 334fca4ebfc61bf438fb806a44b48445, type: 3}
     volume: 1
     pitch: 0
     looping: 0

@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetValues(float max, float newvalue)
     {
-        float percent = (newvalue / max);
+        float percent = (newvalue * 1f / max * 1f);
         percent = Mathf.Max(0, Mathf.Min(percent,1));
 
 

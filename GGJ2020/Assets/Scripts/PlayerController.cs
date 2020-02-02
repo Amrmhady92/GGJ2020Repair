@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStat;
-
-
+    Animator attackAnimator;
     private bool active = true;
     private AttackBehaviour attackBehaviour;
     private MovementController movementController;
-
+    public bool invincible_ = false;
+    public float invincibility_timer_ = 0.5f;
     public bool Active
     {
         get
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
         set
         {
             active = value;
+            if (movementController != null) movementController.Active = active;
+            else movementController = this.GetComponent<MovementController>();
             if (movementController != null) movementController.Active = active;
         }
     }
@@ -40,8 +43,9 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("No MovementController on Player Controller Object");
             return;
         }
+        attackAnimator = this.GetComponentInChildren<Animator>();
 
-        
+
     }
     private void Update()
     {
@@ -56,5 +60,31 @@ public class PlayerController : MonoBehaviour
         {
             movementController.Dash();
         }
+    }
+
+    public void HealEffect()
+    {
+        playerStat.PlayerHP += GameManager.Instance.repairAmount;
+    }
+
+    public void TakeDamage(int damage_taken)
+    {
+        if (invincible_) return;
+
+        playerStat.PlayerHP -= damage_taken;
+        StopAllCoroutines();
+        StartCoroutine(setInvincibility());
+    }
+
+    public IEnumerator setInvincibility()
+    {
+        invincible_ = true;
+        yield return new WaitForSeconds(invincibility_timer_);
+        invincible_ = false;
+    }
+
+    public void PlayAttackAnimation()
+    {
+        attackAnimator.SetTrigger("Attack");
     }
 }

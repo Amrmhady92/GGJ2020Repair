@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public int healTimer = 10;
 
     public PlayerStats[] playerStats;
-    public GameObject[] playersPrefabs; 
+    public GameObject[] playersPrefabs;
+    public GameObject explosionPrefab;
 
     public Image greenEffectImage;
     public Color healEffectColor;
@@ -199,7 +200,6 @@ public class GameManager : MonoBehaviour
         }
         if (alivePlayers > 2)
         {
-            Debug.Log("Begin HealSequence");
             BeginRepairSequence();
         }
     }
@@ -278,6 +278,13 @@ public class GameManager : MonoBehaviour
             {
                 playerControllers[i].gameObject.SetActive(false);
                 //Play Explosion Effect
+                if(explosionPrefab != null)
+                {
+                    GameObject ob = GameObject.Instantiate(explosionPrefab);
+                    ob.transform.position = playerControllers[i].transform.position;
+                }
+                
+                
                 break;
             }
         }

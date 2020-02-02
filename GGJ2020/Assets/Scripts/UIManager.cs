@@ -19,6 +19,13 @@ public class UIManager : MonoBehaviour
     public HealthBar playerHpThree;
     public HealthBar playerHpFour;
 
+    public Color playerOnColorOne;
+    public Color playerOnColorTwo;
+    public Color playerOnColorThree;
+    public Color playerOnColorFour;
+
+    public Color playerOffColor;
+
     public GameObject backgroundImage;
 
     private static UIManager instance;
@@ -33,6 +40,10 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         if (instance == null) instance = this;
+        for (int i = 0; i < 4; i++)
+        {
+            SetPlayerReady(i+1, false);
+        }
     }
 
     public void SetPlayerReady(int playerNumber, bool ready)
@@ -40,19 +51,19 @@ public class UIManager : MonoBehaviour
         switch (playerNumber)
         {
             case 1:
-               if(playerReadyImageOne != null) playerReadyImageOne.color = ready ? Color.green : Color.red;
+                if (playerReadyImageOne != null) playerReadyImageOne.color = ready ? playerOnColorOne : playerOffColor;
                if(playerHpOne) playerHpOne.gameObject.SetActive(ready);
                 break;
             case 2:
-                if (playerReadyImageTwo != null) playerReadyImageTwo.color = ready ? Color.green : Color.red;
+                if (playerReadyImageTwo != null) playerReadyImageTwo.color = ready ? playerOnColorTwo : playerOffColor;
                 if (playerHpTwo) playerHpTwo.gameObject.SetActive(ready);
                 break;
             case 3:
-                if (playerReadyImageThree != null) playerReadyImageThree.color = ready ? Color.green : Color.red;
+                if (playerReadyImageThree != null) playerReadyImageThree.color = ready ? playerOnColorThree : playerOffColor;
                 if (playerHpThree) playerHpThree.gameObject.SetActive(ready);
                 break;
             case 4:
-                if (playerReadyImageFour != null) playerReadyImageFour.color = ready ? Color.green : Color.red;
+                if (playerReadyImageFour != null) playerReadyImageFour.color = ready ? playerOnColorFour : playerOffColor;
                 if (playerHpFour) playerHpFour.gameObject.SetActive(ready);
                 break;
         }

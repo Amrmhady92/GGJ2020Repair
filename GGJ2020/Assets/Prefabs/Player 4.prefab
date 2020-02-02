@@ -1304,7 +1304,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.972549, g: 0.019607844, b: 1, a: 1}
-        key1: {r: 1, g: 0.12657782, b: 0, a: 0.5019608}
+        key1: {r: 0.7830189, g: 0.05540227, b: 0.7396714, a: 0.49019608}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5089,6 +5089,7 @@ Transform:
   - {fileID: 1205027237}
   - {fileID: 6933738155879152747}
   - {fileID: 8700542657223037050}
+  - {fileID: 3286490825091135295}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5236,3 +5237,108 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!1001 &2048254403376526337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8132120841512984462}
+    m_Modifications:
+    - target: {fileID: 2968444400947327437, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968444400947327437, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.078431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968444400947327437, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Dash Particle System '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924239328188094274, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924239328188094274, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.078431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924239328188094274, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78523f56657d9bd439faa7e84dbff01f, type: 3}
+--- !u!4 &3286490825091135295 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2048254403376526337}
+  m_PrefabAsset: {fileID: 0}

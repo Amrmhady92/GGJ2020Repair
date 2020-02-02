@@ -1234,11 +1234,11 @@ MonoBehaviour:
   playerHpTwo: {fileID: 1550003746}
   playerHpThree: {fileID: 88769849}
   playerHpFour: {fileID: 2043705225}
-  playerOnColorOne: {r: 0, g: 0, b: 0, a: 0}
-  playerOnColorTwo: {r: 0, g: 0, b: 0, a: 0}
-  playerOnColorThree: {r: 0, g: 0, b: 0, a: 0}
-  playerOnColorFour: {r: 0, g: 0, b: 0, a: 0}
-  playerOffColor: {r: 0, g: 0, b: 0, a: 0}
+  playerOnColorOne: {r: 0.972549, g: 0.019607844, b: 0.019607844, a: 0}
+  playerOnColorTwo: {r: 1, g: 0.9647059, b: 0, a: 0}
+  playerOnColorThree: {r: 0, g: 0.99607843, b: 0.023529412, a: 0}
+  playerOnColorFour: {r: 1, g: 0.078431375, b: 0.94509804, a: 0}
+  playerOffColor: {r: 1, g: 1, b: 1, a: 1}
   backgroundImage: {fileID: 1657423173}
 --- !u!114 &1334123488
 MonoBehaviour:
@@ -2493,6 +2493,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1371728985}
     m_Modifications:
+    - target: {fileID: 1613150740983390792, guid: 6efb6a0ff9a5fba47b5f33a4f9935631,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1613150741379319142, guid: 6efb6a0ff9a5fba47b5f33a4f9935631,
         type: 3}
       propertyPath: m_Name

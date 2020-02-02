@@ -28,6 +28,7 @@ public class SlashingAttack : AttackBehaviour
 
     private IEnumerator ActivateAttack()
     {
+        FindObjectOfType<AudioManager>().Play("Attack" + myController.playerStat.playerNumber);
         attacked_ = true;
         attack_box_.enabled = true;
 
@@ -76,6 +77,7 @@ public class SlashingAttack : AttackBehaviour
         if (playerCont != null && collision.transform.parent != this.transform.parent)
         {
             playerCont.TakeDamage(attackDamage);
+            FindObjectOfType<AudioManager>().Play("Hit" + playerCont.playerStat.playerNumber);
         }
     }
 }

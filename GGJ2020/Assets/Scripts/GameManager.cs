@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] playersPrefabs;
     public GameObject explosionPrefab;
 
+    public Vector2[] startPositions = new Vector2[4];
+
     public Image greenEffectImage;
     public Color healEffectColor;
 

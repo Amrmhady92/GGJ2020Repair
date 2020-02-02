@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Range(0,1f)]
-    public float repairSequenceMinHPAll = 0.5f;
-    [Range(0, 1f)]
-    public float repairSequenceMinHPIndividual = 0.5f;
+    //[Range(0,1f)]
+    //public float repairSequenceMinHPAll = 0.5f;
+    //[Range(0, 1f)]
+    //public float repairSequenceMinHPIndividual = 0.5f;
     public int repairCountDown = 5;
     public int repairAmount = 5;
+    public int healTimer = 10;
+
     public PlayerStats[] playerStats;
     public GameObject[] playersPrefabs; 
 
@@ -30,9 +32,13 @@ public class GameManager : MonoBehaviour
     private bool canReady = true;
 
     private List<PlayerStats> currentPlayersStats;
+    private PlayerController[] playerControllers;
     int readyPlayerCount;
     bool startMenu = true;
     private static GameManager instance;
+
+    private AudioManager audio_manager_;
+    private float[] fade_in_timer_ = new float[] { 0.0f, 0.0f };
 
     public static GameManager Instance
     {
@@ -44,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance == null) instance = this;
         
         for (int i = 0; i < playerStats.Length; i++)
@@ -51,10 +58,16 @@ public class GameManager : MonoBehaviour
             playerStats[i].PlayerHP = playerStats[i].PlayerMaxHP;
             playerStats[i].isDead = false;
         }
-    }
 
+        audio_manager_ = FindObjectOfType<AudioManager>();
+        audio_manager_.Play("Drums");
+        audio_manager_.Play("Bass1");
+        audio_manager_.Play("Bass2");
+        audio_manager_.Play("Synthi1");
+    }
     private void Update()
     {
+        Debug.Log(fade_in_timer_[0]);
         if (startMenu)
         {
             if ((Input.GetButtonDown("Fire_P1") || Input.GetKeyDown(KeyCode.R)) && canReady)
@@ -78,7 +91,7 @@ public class GameManager : MonoBehaviour
                 else readyPlayerCount--;
                 UIManager.Instance.SetPlayerReady(3, playerReadyThree);
             }
-            if (Input.GetButtonDown("Fire_P4") && canReady)
+            if ((Input.GetButtonDown("Fire_P4") || Input.GetKeyDown(KeyCode.R)) && canReady)
             {
                 playerReadyFour = !playerReadyFour;
                 if (playerReadyFour) readyPlayerCount++;
@@ -95,6 +108,9 @@ public class GameManager : MonoBehaviour
                     StartGame();
                 }
             }
+        }
+        else {
+            PlayEnvironmentMusic();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -129,7 +145,7 @@ public class GameManager : MonoBehaviour
             currentPlayersStats = new List<PlayerStats>();
             countDowner.StartCountDown(() => 
             {
-                PlayerController[] playerControllers = GameObject.FindObjectsOfType<PlayerController>();
+                playerControllers = GameObject.FindObjectsOfType<PlayerController>();
                 for (int i = 0; i < playerControllers.Length; i++)
                 {
                     playerControllers[i].Active = true;
@@ -138,7 +154,7 @@ public class GameManager : MonoBehaviour
                     playerControllers[i].playerStat.onPlayerDead += OnPlayerDead;
                     currentPlayersStats.Add(playerControllers[i].playerStat);
                     //Sound here
-
+                    StartCoroutine(HealingTimer());
                 }
             });
 
@@ -154,11 +170,28 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private IEnumerator HealingTimer()
+    {
+        yield return new WaitForSeconds(healTimer);
+
+        alivePlayers = 0;
+        for (int i = 0; i < currentPlayersStats.Count; i++)
+        {
+            if (currentPlayersStats[i].isDead) continue;
+            alivePlayers++;
+        }
+        if (alivePlayers > 2)
+        {
+            Debug.Log("Begin HealSequence");
+            BeginRepairSequence();
+        }
+    }
+
     float maxHPs;
     float currentHPs;
     bool individualUnderMinHP = false;
     int alivePlayers;
-    public bool repairSequenceUnderWay = false;
+    private bool repairSequenceUnderWay = false;
     public void OnPlayerHit()
     {
         //Debug.Log("Player hit");
@@ -166,25 +199,25 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.SetPlayerHPUI(playerStats[i]);
         }
-        maxHPs = 0;
-        currentHPs = 0;
-        individualUnderMinHP = false;
-        alivePlayers = 0;
-        for (int i = 0; i < currentPlayersStats.Count; i++)
-        {
-            if (currentPlayersStats[i].isDead) continue;
-            alivePlayers++;
-            maxHPs += (float)currentPlayersStats[i].PlayerMaxHP;
-            currentHPs += (float)currentPlayersStats[i].PlayerHP;
-            if(!individualUnderMinHP) individualUnderMinHP = ((float)currentPlayersStats[i].PlayerHP / (float)currentPlayersStats[i].PlayerMaxHP) <= repairSequenceMinHPIndividual;
-            Debug.Log(currentPlayersStats[i].PlayerHP / currentPlayersStats[i].PlayerMaxHP);
-        }
-        Debug.Log("maxHPs = " + maxHPs + "\ncurrentHPs = " + currentHPs + "\nindividualUnderMinHP = " + individualUnderMinHP);
-        if ((currentHPs / maxHPs <= repairSequenceMinHPAll || individualUnderMinHP) && alivePlayers > 2) 
-        {
-            Debug.Log("Begin HealSequence");
-            BeginRepairSequence();
-        }
+        //maxHPs = 0;
+        //currentHPs = 0;
+        //individualUnderMinHP = false;
+        //alivePlayers = 0;
+        //for (int i = 0; i < currentPlayersStats.Count; i++)
+        //{
+        //    if (currentPlayersStats[i].isDead) continue;
+        //    alivePlayers++;
+        //    maxHPs += (float)currentPlayersStats[i].PlayerMaxHP;
+        //    currentHPs += (float)currentPlayersStats[i].PlayerHP;
+        //    if(!individualUnderMinHP) individualUnderMinHP = ((float)currentPlayersStats[i].PlayerHP / (float)currentPlayersStats[i].PlayerMaxHP) <= repairSequenceMinHPIndividual;
+        //    Debug.Log(currentPlayersStats[i].PlayerHP / currentPlayersStats[i].PlayerMaxHP);
+        //}
+        //Debug.Log("maxHPs = " + maxHPs + "\ncurrentHPs = " + currentHPs + "\nindividualUnderMinHP = " + individualUnderMinHP);
+        //if ((currentHPs / maxHPs <= repairSequenceMinHPAll || individualUnderMinHP) && alivePlayers > 2) 
+        //{
+        //    Debug.Log("Begin HealSequence");
+        //    BeginRepairSequence();
+        //}
 
     }
 
@@ -215,18 +248,48 @@ public class GameManager : MonoBehaviour
                 });
             }
             repairSequenceUnderWay = false;
-
+            StartCoroutine(HealingTimer());
         });
 
     }
 
     public void OnPlayerDead(int playerNumber)
     {
-
+        for (int i = 0; i < playerControllers.Length; i++)
+        {
+            if(playerControllers[i].playerStat.playerNumber == playerNumber)
+            {
+                playerControllers[i].gameObject.SetActive(false);
+                //Play Explosion Effect
+                break;
+            }
+        }
     }
 
     public void OnRestartButtonPressed()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    private void PlayEnvironmentMusic()
+    {
+        int number_of_players = 0;
+        if (playerControllers != null)
+        {
+            foreach (PlayerController player in playerControllers)
+            {
+                if (!player.playerStat.isDead) number_of_players++;
+            }
+        }
+        if (number_of_players == 3)
+        {
+            fade_in_timer_[0] += Time.deltaTime;
+            audio_manager_.fadeIn("Bass2", fade_in_timer_[0]);
+        }
+        if (number_of_players == 2)
+        {
+            fade_in_timer_[1] += Time.deltaTime;
+            audio_manager_.fadeIn("Synthi1", fade_in_timer_[1]);
+        }
     }
 }

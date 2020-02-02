@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(fade_in_timer_[0]);
         if (startMenu)
         {
             if ((Input.GetButtonDown("Fire_P1") || Input.GetKeyDown(KeyCode.R)) && canReady)
@@ -277,7 +278,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (PlayerController player in playerControllers)
             {
-                if (player.Active) number_of_players++;
+                if (!player.playerStat.isDead) number_of_players++;
             }
         }
         if (number_of_players == 3)
@@ -288,7 +289,7 @@ public class GameManager : MonoBehaviour
         if (number_of_players == 2)
         {
             fade_in_timer_[1] += Time.deltaTime;
-            audio_manager_.fadeIn("Bass2", fade_in_timer_[1]);
+            audio_manager_.fadeIn("Synthi1", fade_in_timer_[1]);
         }
     }
 }

@@ -8,12 +8,12 @@ public class SlashingAttack : AttackBehaviour
     
     public float attack_duration_;
     public bool attacked_ = false;
-    public float attackRadius = 1;
-
+    private PlayerController myController;
     private void Start()
     {
         attack_box_ = GetComponent<Collider2D>();
         attack_box_.enabled = false;
+        myController = this.GetComponentInParent<PlayerController>();
     }
 
     public override void Attack()
@@ -22,6 +22,7 @@ public class SlashingAttack : AttackBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(ActivateAttack());
+            if (myController != null) myController.PlayAttackAnimation();
         }
     }
 
@@ -50,11 +51,11 @@ public class SlashingAttack : AttackBehaviour
         attacked_ = false;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(this.transform.position, attackRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawSphere(this.transform.position, attackRadius);
+    //}
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    GameObject collided_object = collision.gameObject;

@@ -157,6 +157,7 @@ public class GameManager : MonoBehaviour
     float maxHPs;
     float currentHPs;
     bool individualUnderMinHP = false;
+    int alivePlayers;
     public bool repairSequenceUnderWay = false;
     public void OnPlayerHit()
     {
@@ -168,17 +169,18 @@ public class GameManager : MonoBehaviour
         maxHPs = 0;
         currentHPs = 0;
         individualUnderMinHP = false;
+        alivePlayers = 0;
         for (int i = 0; i < currentPlayersStats.Count; i++)
         {
             if (currentPlayersStats[i].isDead) continue;
-
+            alivePlayers++;
             maxHPs += (float)currentPlayersStats[i].PlayerMaxHP;
             currentHPs += (float)currentPlayersStats[i].PlayerHP;
             if(!individualUnderMinHP) individualUnderMinHP = ((float)currentPlayersStats[i].PlayerHP / (float)currentPlayersStats[i].PlayerMaxHP) <= repairSequenceMinHPIndividual;
             Debug.Log(currentPlayersStats[i].PlayerHP / currentPlayersStats[i].PlayerMaxHP);
         }
         Debug.Log("maxHPs = " + maxHPs + "\ncurrentHPs = " + currentHPs + "\nindividualUnderMinHP = " + individualUnderMinHP);
-        if(currentHPs / maxHPs <= repairSequenceMinHPAll || individualUnderMinHP)
+        if ((currentHPs / maxHPs <= repairSequenceMinHPAll || individualUnderMinHP) && alivePlayers > 2) 
         {
             Debug.Log("Begin HealSequence");
             BeginRepairSequence();
@@ -204,7 +206,7 @@ public class GameManager : MonoBehaviour
                     playerControllers[i].HealEffect();
                 }
             }
-            if(greenEffectImage !=null )
+            if(greenEffectImage != null )
             {
                 LeanTween.cancel(greenEffectImage.gameObject);
                 LeanTween.color(greenEffectImage.rectTransform, healEffectColor, 0.5f).setOnComplete(() =>

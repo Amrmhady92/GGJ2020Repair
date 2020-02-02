@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStat;
-
+    Animator attackAnimator;
     private bool active = true;
     private AttackBehaviour attackBehaviour;
     private MovementController movementController;
@@ -43,8 +43,9 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("No MovementController on Player Controller Object");
             return;
         }
+        attackAnimator = this.GetComponentInChildren<Animator>();
 
-        
+
     }
     private void Update()
     {
@@ -80,5 +81,10 @@ public class PlayerController : MonoBehaviour
         invincible_ = true;
         yield return new WaitForSeconds(invincibility_timer_);
         invincible_ = false;
+    }
+
+    public void PlayAttackAnimation()
+    {
+        attackAnimator.SetTrigger("Attack");
     }
 }

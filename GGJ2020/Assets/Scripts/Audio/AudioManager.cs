@@ -15,11 +15,13 @@ public class Sound
         Environment_Sound,
         Menu_Sound
     }
+    public string name;
+    public Type type;
+
 
     public AudioClip clip;
 
-    public string name;
-    public Type type;
+
 
     [Range(0f, 1f)]
     public float volume;

@@ -4866,11 +4866,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
-  attackSpeed: 0.3
-  attack_cooldown_: 2
+  attack_cooldown_: 1
   attack_box_: {fileID: 0}
   attack_duration_: 0.5
   attacked_: 0
+  attackRadius: 1
 --- !u!1 &8132120841512984449
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,6 +4971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStat: {fileID: 11400000, guid: 210a75085ef6c5e45a0f6e2ecef17eda, type: 2}
+  invincible_: 0
+  invincibility_timer_: 0.5
 --- !u!114 &8132120841512984448
 MonoBehaviour:
   m_ObjectHideFlags: 0

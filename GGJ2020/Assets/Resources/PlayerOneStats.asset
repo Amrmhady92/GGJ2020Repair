@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerOneStats
   m_EditorClassIdentifier: 
   playerNumber: 1
-  playerHP: 10
+  playerIndex: 1
+  playerHP: 0
   playerMaxHP: 10
   isPlaying: 1
-  isDead: 0
+  isDead: 1

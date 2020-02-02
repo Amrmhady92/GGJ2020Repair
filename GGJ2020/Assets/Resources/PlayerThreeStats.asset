@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerThreeStats
   m_EditorClassIdentifier: 
   playerNumber: 3
+  playerIndex: 3
   playerHP: 10
   playerMaxHP: 10
   isPlaying: 1

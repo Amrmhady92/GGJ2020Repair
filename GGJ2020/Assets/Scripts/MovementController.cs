@@ -13,7 +13,7 @@ public class MovementController : MonoBehaviour
     public float dashCoolDown = 1.5f;
     public bool isDashing = false;
     public bool canDash = true;
-
+    public GameObject dasheffect;
     private float x, y = 0;
     private float xIn, yIn = 0;
     private float angle;
@@ -75,12 +75,15 @@ public class MovementController : MonoBehaviour
         canDash = false;
 
         rb.velocity = Vector2.zero;
+        if (dasheffect != null) dasheffect.SetActive(true);
         rb.AddForce(this.transform.up * dashForce,ForceMode2D.Impulse);
         StopAllCoroutines();
         StartCoroutine(DoAfter(() => 
         {
             rb.velocity = Vector2.zero;
             isDashing = false;
+            if (dasheffect != null) dasheffect.SetActive(false);
+
         },
         dashDuration));
         StartCoroutine(DoAfter(() => { canDash = true; }, dashCoolDown));

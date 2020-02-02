@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -267,6 +268,25 @@ public class GameManager : MonoBehaviour
                 
                 break;
             }
+        }
+
+        int alivePlayers = 0;
+        int alivePlayer = 0;
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            if (playerStats[i].isPlaying && !playerStats[i].isDead)
+            {
+                alivePlayer = playerStats[i].playerIndex;
+                alivePlayers++;
+            }
+        }
+        if (alivePlayers == 1)
+        {
+            Debug.Log("Game End");
+            //Game End
+            UIManager.Instance.gameendedtext.text = "Player "+ alivePlayer + " Win";
+            
+
         }
     }
 

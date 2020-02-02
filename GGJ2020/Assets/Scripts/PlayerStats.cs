@@ -35,8 +35,9 @@ public class PlayerStats : ScriptableObject
             playerHP = Mathf.Max(0, Mathf.Min( value , playerMaxHP ));
             if(playerHP <= 0)
             {
-                onPlayerDead?.Invoke(playerNumber);
+                
                 isDead = true;
+                onPlayerDead?.Invoke(playerNumber);
                 //Debug.Log("Player Dead");
             }
             if(valueChanged) onPlayerHPChange?.Invoke();

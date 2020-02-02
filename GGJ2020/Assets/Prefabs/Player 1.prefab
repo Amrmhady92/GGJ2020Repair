@@ -9482,8 +9482,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 715491183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -9945,6 +9945,7 @@ MonoBehaviour:
   dashCoolDown: 1
   isDashing: 0
   canDash: 1
+  dasheffect: {fileID: 4731699305347534816}
 --- !u!50 &8132120841512984461
 Rigidbody2D:
   serializedVersion: 4
@@ -10059,8 +10060,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Dash Particle System '
       objectReference: {fileID: 0}
+    - target: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001935828259746065, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 715491183
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001935828259746065, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78523f56657d9bd439faa7e84dbff01f, type: 3}
+--- !u!1 &4731699305347534816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074949658104823386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4548024836261412196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,

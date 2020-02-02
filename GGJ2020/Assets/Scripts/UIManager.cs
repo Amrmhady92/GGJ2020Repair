@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
 
     public GameObject gameUI;
-
+    public TMPro.TextMeshProUGUI gameendedtext;
     public HealthBar playerHpOne;
     public HealthBar playerHpTwo;
     public HealthBar playerHpThree;

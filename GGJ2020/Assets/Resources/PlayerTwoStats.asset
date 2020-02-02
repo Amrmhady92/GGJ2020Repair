@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PlayerTwoStats
   m_EditorClassIdentifier: 
   playerNumber: 2
-  playerHP: 10
+  playerIndex: 2
+  playerHP: 0
   playerMaxHP: 10
-  isPlaying: 0
+  isPlaying: 1
+  isDead: 1

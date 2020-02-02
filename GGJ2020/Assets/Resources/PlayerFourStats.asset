@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerFourStats
   m_EditorClassIdentifier: 
   playerNumber: 4
+  playerIndex: 4
   playerHP: 10
   playerMaxHP: 10
   isPlaying: 1

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public Text instructions_text_;
 
     public Image playerReadyImageOne;
     public Image playerReadyImageTwo;
@@ -98,6 +99,7 @@ public class UIManager : MonoBehaviour
         playerReadyImageTwo.gameObject.SetActive(enableDisable);
         playerReadyImageThree.gameObject.SetActive(enableDisable);
         playerReadyImageFour.gameObject.SetActive(enableDisable);
+        instructions_text_.gameObject.SetActive(enableDisable);
     }
 
 }

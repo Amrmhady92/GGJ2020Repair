@@ -11,6 +11,7 @@ namespace KandooZ
         private TextMeshProUGUI text;
         private int count;
         private System.Action callback;
+        public bool is_repair_timer_ = false;
 
         public TextMeshProUGUI Text
         {
@@ -35,7 +36,7 @@ namespace KandooZ
             if (countDownTimes <= 0) countDownTimes = 1;
         }
 
-
+       
         public void StartCountDown(System.Action callback)
         {
             count = countDownTimes;
@@ -51,12 +52,15 @@ namespace KandooZ
             transform.LeanScale(Vector3.one, 1).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
             {
                 count--;
-
-
+                if(count == 1 && is_repair_timer_)
+                {
+                    FindObjectOfType<AudioManager>().Play("RepairIncoming");
+                }
                 if (count > 0)
                 {
                     CountDown();
                 }
+
                 else
                 {
                     Text.text = countDownPhrase;

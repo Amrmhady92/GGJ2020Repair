@@ -184,10 +184,6 @@ public class GameManager : MonoBehaviour
             Debug.LogError("PlayerStats list is wrong");
             return;
         }
-
-
-
-
     }
 
     private IEnumerator HealingTimer()
@@ -218,26 +214,6 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.SetPlayerHPUI(playerStats[i]);
         }
-        //maxHPs = 0;
-        //currentHPs = 0;
-        //individualUnderMinHP = false;
-        //alivePlayers = 0;
-        //for (int i = 0; i < currentPlayersStats.Count; i++)
-        //{
-        //    if (currentPlayersStats[i].isDead) continue;
-        //    alivePlayers++;
-        //    maxHPs += (float)currentPlayersStats[i].PlayerMaxHP;
-        //    currentHPs += (float)currentPlayersStats[i].PlayerHP;
-        //    if(!individualUnderMinHP) individualUnderMinHP = ((float)currentPlayersStats[i].PlayerHP / (float)currentPlayersStats[i].PlayerMaxHP) <= repairSequenceMinHPIndividual;
-        //    Debug.Log(currentPlayersStats[i].PlayerHP / currentPlayersStats[i].PlayerMaxHP);
-        //}
-        //Debug.Log("maxHPs = " + maxHPs + "\ncurrentHPs = " + currentHPs + "\nindividualUnderMinHP = " + individualUnderMinHP);
-        //if ((currentHPs / maxHPs <= repairSequenceMinHPAll || individualUnderMinHP) && alivePlayers > 2) 
-        //{
-        //    Debug.Log("Begin HealSequence");
-        //    BeginRepairSequence();
-        //}
-
     }
 
     private void BeginRepairSequence()
@@ -247,10 +223,12 @@ public class GameManager : MonoBehaviour
 
         countDowner.countDownPhrase = "REPAIR!";
         countDowner.countDownTimes = repairCountDown;
+        countDowner.is_repair_timer_ = true;
         countDowner.StartCountDown(()=>
         {
             Debug.Log("HEALING");
             PlayerController[] playerControllers = GameObject.FindObjectsOfType<PlayerController>();
+
             for (int i = 0; i < playerControllers.Length; i++)
             {
                 if(playerControllers[i].playerStat.isPlaying && !playerControllers[i].playerStat.isDead)

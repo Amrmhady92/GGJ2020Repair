@@ -5157,6 +5157,20 @@ MonoBehaviour:
   playerStat: {fileID: 11400000, guid: 210a75085ef6c5e45a0f6e2ecef17eda, type: 2}
   invincible_: 0
   invincibility_timer_: 0.5
+  shipSpriteRenderer: {fileID: 218109227721631644}
+  shipStateSprites:
+  - {fileID: 21300000, guid: c033362fedac3cb4f9b132a397fb0b75, type: 3}
+  - {fileID: 21300000, guid: 146c6e36e0f0c9e4aa3a069378e88b83, type: 3}
+  - {fileID: 21300000, guid: 5d5dabda571209741a1d3d9f5c3ca963, type: 3}
+  - {fileID: 21300000, guid: 738548fcf2ce03846be3002f4a0c2720, type: 3}
+  shipPartsSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shiptSpritePartPrefab: {fileID: 7403660224024933652, guid: f48d3f60d25f2b64b9eb0d4aca97f559,
+    type: 3}
+  minPartSpeed: 3
+  maxPartSpeed: 7
 --- !u!114 &8132120841512984448
 MonoBehaviour:
   m_ObjectHideFlags: 0

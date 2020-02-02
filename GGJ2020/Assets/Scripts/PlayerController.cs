@@ -12,6 +12,15 @@ public class PlayerController : MonoBehaviour
     private MovementController movementController;
     public bool invincible_ = false;
     public float invincibility_timer_ = 0.5f;
+
+    public SpriteRenderer shipSpriteRenderer;
+    public Sprite[] shipStateSprites;
+    public Sprite[] shipPartsSprites;
+    public GameObject shiptSpritePartPrefab;
+    public float minPartSpeed = 3f;
+    public float maxPartSpeed = 7f;
+    private Pooler shipPartsPooler;
+    
     public bool Active
     {
         get
@@ -45,6 +54,9 @@ public class PlayerController : MonoBehaviour
         }
         attackAnimator = this.GetComponentInChildren<Animator>();
 
+        shipPartsPooler = this.gameObject.AddComponent<Pooler>();
+        shipPartsPooler.startAmount = 2;
+        shipPartsPooler.PooledObject = shiptSpritePartPrefab;
 
     }
     private void Update()
@@ -66,6 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         playerStat.PlayerHP += GameManager.Instance.repairAmount;
     }
+    float percent;
+    GameObject partFalling;
 
     public void TakeDamage(int damage_taken)
     {
@@ -74,6 +88,49 @@ public class PlayerController : MonoBehaviour
         playerStat.PlayerHP -= damage_taken;
         StopAllCoroutines();
         StartCoroutine(setInvincibility());
+        if(shipStateSprites.Length == 4)
+        {
+            percent = ((float)playerStat.PlayerHP / (float)playerStat.PlayerMaxHP);
+            percent = Mathf.Max(0, Mathf.Min(percent, 1));
+            if (percent < 0.3f)
+            {
+                shipSpriteRenderer.sprite = shipStateSprites[3];
+                partFalling = shipPartsPooler.Get(true);
+                partFalling.GetComponent<SpriteRenderer>().sprite = shipPartsSprites[2];
+            }
+            else if (percent < 0.6f)
+            {
+                shipSpriteRenderer.sprite = shipStateSprites[2];
+                partFalling = shipPartsPooler.Get(true);
+                partFalling.GetComponent<SpriteRenderer>().sprite = shipPartsSprites[1];
+            }
+            else if (percent < 0.8f)
+            {
+                shipSpriteRenderer.sprite = shipStateSprites[1];
+                partFalling = shipPartsPooler.Get(true);
+                partFalling.GetComponent<SpriteRenderer>().sprite = shipPartsSprites[0];
+            }
+            else
+            {
+                partFalling = null;
+                shipSpriteRenderer.sprite = shipStateSprites[0];
+            }
+
+            if(partFalling != null)
+            {
+                partFalling.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * Random.Range(minPartSpeed,maxPartSpeed), ForceMode2D.Force);
+                partFalling.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(1f, 3f);
+                partFalling.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 360));
+                LeanTween.cancel(partFalling);
+                LeanTween.scale(partFalling,Vector2.zero,0.3f).setOnComplete(()=> { partFalling.SetActive(false); });
+
+            }
+        }
+        else
+        {
+            Debug.Log("Not enough sprites");
+        }
+        
     }
 
     public IEnumerator setInvincibility()

@@ -5191,7 +5191,7 @@ MonoBehaviour:
   dashCoolDown: 1
   isDashing: 0
   canDash: 1
-  dasheffect: {fileID: 0}
+  dasheffect: {fileID: 7379213643703664797}
 --- !u!50 &8132120841512984461
 Rigidbody2D:
   serializedVersion: 4
@@ -5260,6 +5260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Breaking Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 143052892751579351, guid: 61c7e3a8711a7d845a15eb18d8695ddd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2400302189574833867, guid: 61c7e3a8711a7d845a15eb18d8695ddd,
         type: 3}
@@ -5406,6 +5411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Dash Particle System '
       objectReference: {fileID: 0}
+    - target: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8001935828259746065, guid: 78523f56657d9bd439faa7e84dbff01f,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -5433,6 +5443,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78523f56657d9bd439faa7e84dbff01f, type: 3}
+--- !u!1 &7379213643703664797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2965789405867700519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1792345487456367129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,

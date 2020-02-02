@@ -9945,7 +9945,7 @@ MonoBehaviour:
   dashCoolDown: 1
   isDashing: 0
   canDash: 1
-  dasheffect: {fileID: 0}
+  dasheffect: {fileID: 5993304777794192827}
 --- !u!50 &8132120841512984461
 Rigidbody2D:
   serializedVersion: 4
@@ -10075,6 +10075,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Dash Particle System '
       objectReference: {fileID: 0}
+    - target: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8001935828259746065, guid: 78523f56657d9bd439faa7e84dbff01f,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -10102,6 +10107,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78523f56657d9bd439faa7e84dbff01f, type: 3}
+--- !u!1 &5993304777794192827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5710742955697910202, guid: 78523f56657d9bd439faa7e84dbff01f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2048254403376526337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3286490825091135295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3600392027608449854, guid: 78523f56657d9bd439faa7e84dbff01f,

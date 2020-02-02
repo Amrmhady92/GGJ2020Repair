@@ -5171,7 +5171,7 @@ MonoBehaviour:
   shiptSpritePartPrefab: {fileID: 7403660224024933652, guid: f48d3f60d25f2b64b9eb0d4aca97f559,
     type: 3}
   minPartSpeed: 3
-  maxPartSpeed: 7
+  maxPartSpeed: 15
 --- !u!114 &8132120841512984448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5184,7 +5184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da18be1aa4442c4439d31b35e4a43114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 20
   dashForce: 80
   dashDuration: 0.05
   dashCoolDown: 1

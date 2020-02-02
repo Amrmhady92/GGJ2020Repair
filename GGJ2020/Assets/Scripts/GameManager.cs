@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(names[i]);
         }
+
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            playerStats[i].PlayerHP = playerStats[i].PlayerMaxHP;
+        }
     }
     private void Start()
     {
@@ -108,12 +113,18 @@ public class GameManager : MonoBehaviour
             }
 
             UIManager.Instance.EnableDisableUIScreen(false);
+            UIManager.Instance.gameUI.SetActive(true);
+
             countDowner.StartCountDown(() => 
             {
                 PlayerController[] playerControllers = GameObject.FindObjectsOfType<PlayerController>();
                 for (int i = 0; i < playerControllers.Length; i++)
                 {
                     playerControllers[i].Active = true;
+                    UIManager.Instance.SetPlayerHPUI(playerControllers[i].playerStat);
+                    playerControllers[i].playerStat.onPlayerLoseHP += OnPlayerHit;
+                    playerControllers[i].playerStat.onPlayerDead += OnPlayerDead;
+
                     //Sound here
 
                 }
@@ -127,6 +138,21 @@ public class GameManager : MonoBehaviour
         }
 
 
+
+
+    }
+
+    public void OnPlayerHit()
+    {
+        //Debug.Log("Player hit");
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            UIManager.Instance.SetPlayerHPUI(playerStats[i]);
+        }
+    }
+
+    public void OnPlayerDead(int playerNumber)
+    {
 
     }
 }

@@ -84,7 +84,7 @@ public class MovementController : MonoBehaviour
         },
         dashDuration));
         StartCoroutine(DoAfter(() => { canDash = true; }, dashCoolDown));
-
+        FindObjectOfType<AudioManager>().Play("Dash" + GetComponent<PlayerController>().playerStat.playerNumber);
     }
 
     private IEnumerator DoAfter(System.Action callback, float time) 

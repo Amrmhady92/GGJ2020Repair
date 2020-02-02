@@ -15,5 +15,5 @@ MonoBehaviour:
   playerNumber: 1
   playerHP: 10
   playerMaxHP: 10
-  isDashing: 0
-  isPlaying: 0
+  isPlaying: 1
+  isDead: 0

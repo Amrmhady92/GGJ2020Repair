@@ -55,7 +55,7 @@ MonoBehaviour:
   - name: Bass1
     type: 5
     clip: {fileID: 8300000, guid: 4c442d987f540954eb0b9105b8d99413, type: 3}
-    volume: 1
+    volume: 0
     pitch: 0
     looping: 1
     stereo: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   - name: Bass2
     type: 5
     clip: {fileID: 8300000, guid: c91babe5724fb75459930135068bc88b, type: 3}
-    volume: 1
+    volume: 0
     pitch: 0
     looping: 1
     stereo: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   - name: Synthi1
     type: 0
     clip: {fileID: 8300000, guid: ac56448c258d15e478d632d2b19f76be, type: 3}
-    volume: 1
+    volume: 0
     pitch: 0
     looping: 1
     stereo: 0
@@ -84,17 +84,145 @@ MonoBehaviour:
     looping: 1
     stereo: 0
     source: {fileID: 0}
-  - name: BounceOffTheBorder
-    type: 4
+  - name: BounceOffTheBorder1
+    type: 0
     clip: {fileID: 8300000, guid: b436e8c9f8ce9ca4c959748dbf1724b6, type: 3}
     volume: 1
     pitch: 0
     looping: 0
     stereo: 0
     source: {fileID: 0}
-  - name: Death
-    type: 4
+  - name: BounceOffTheBorder2
+    type: 1
+    clip: {fileID: 8300000, guid: b436e8c9f8ce9ca4c959748dbf1724b6, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: BounceOffTheBorder3
+    type: 2
+    clip: {fileID: 8300000, guid: b436e8c9f8ce9ca4c959748dbf1724b6, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: BounceOffTheBorder4
+    type: 3
+    clip: {fileID: 8300000, guid: b436e8c9f8ce9ca4c959748dbf1724b6, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Hit1
+    type: 0
+    clip: {fileID: 8300000, guid: 1cbc9bad62b05a9438fbab374617971a, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Hit2
+    type: 1
+    clip: {fileID: 8300000, guid: 1cbc9bad62b05a9438fbab374617971a, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Hit3
+    type: 2
+    clip: {fileID: 8300000, guid: 1cbc9bad62b05a9438fbab374617971a, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Hit4
+    type: 3
+    clip: {fileID: 8300000, guid: 1cbc9bad62b05a9438fbab374617971a, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Death1
+    type: 0
     clip: {fileID: 8300000, guid: 484659a8eca7772429314c29c84e65e5, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Death2
+    type: 1
+    clip: {fileID: 8300000, guid: 484659a8eca7772429314c29c84e65e5, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Death3
+    type: 2
+    clip: {fileID: 8300000, guid: 484659a8eca7772429314c29c84e65e5, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: Death4
+    type: 3
+    clip: {fileID: 8300000, guid: 484659a8eca7772429314c29c84e65e5, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: RepairIncoming
+    type: 5
+    clip: {fileID: 8300000, guid: f4a4f14e2df0ddf4d9a4a3f66b8ddd4b, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: RepairIncoming
+    type: 5
+    clip: {fileID: 8300000, guid: f4a4f14e2df0ddf4d9a4a3f66b8ddd4b, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: RepairIncoming
+    type: 5
+    clip: {fileID: 8300000, guid: f4a4f14e2df0ddf4d9a4a3f66b8ddd4b, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: RepairIncoming
+    type: 5
+    clip: {fileID: 8300000, guid: f4a4f14e2df0ddf4d9a4a3f66b8ddd4b, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: RepairIncoming
+    type: 5
+    clip: {fileID: 8300000, guid: f4a4f14e2df0ddf4d9a4a3f66b8ddd4b, type: 3}
+    volume: 1
+    pitch: 0
+    looping: 0
+    stereo: 0
+    source: {fileID: 0}
+  - name: RepairIncoming
+    type: 5
+    clip: {fileID: 8300000, guid: f4a4f14e2df0ddf4d9a4a3f66b8ddd4b, type: 3}
     volume: 1
     pitch: 0
     looping: 0

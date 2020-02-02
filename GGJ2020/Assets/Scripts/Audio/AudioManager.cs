@@ -111,6 +111,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void fadeIn(string name, float time)
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+                s.source.volume = Mathf.Lerp(0f, 1.0f, time);
+        }
+    }
     public void fadeOut(string name, float time)
     {
         foreach (Sound s in sounds)

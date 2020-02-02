@@ -94,5 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f6edd4bf138e940a23d0d984af952f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotate_around_object_: {fileID: 0}
-  orbit_speed_: 175
+  orbit_speed_: 10
